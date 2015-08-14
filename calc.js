@@ -6,7 +6,7 @@ var units = $(this).val();
   $("#weightunits").text("kg");
 } else if (units == 'imperial') {
   $("#inches").show();
-  $("#heightunits").text("in");
+  $("#heightunits").text("ft");
   $("#weightunits").text("lb");
 }
 });
