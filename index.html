@@ -1,29 +1,74 @@
 <html>
 <head>
-<title>##loseit TDEE calculator</title>
+	<title>##loseit TDEE calculator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
-<form id="tdeeform">
-<table><tr>
-<td><input value='metric' type="radio" name="units">Metric</td>
-<td><input value='imperial' type="radio" name="units" checked>Imperial</td>
-</tr></table>
-    Height: <input id="height" style="width: 100px" />(<span id="heightunits">ft</span>) <span id="inches"><input id="height2" style="width: 100px" />(in)</span> <BR/>
-Weight (<span id="weightunits">lb</span>): <input id="weight"/><BR/>
-Age: <input id="age"/><BR/>
- <table><tr>
-<td><input value='M' type="radio" name="gender">Male</td>
-<td><input value='F' type="radio" name="gender" checked>Female</td>
-</tr></table>
-    <BR/>
-<button type='button' id="calcbutton">Calculate BMR/TDEE</button><BR/>
-    <BR/>
-    <BR/>
-<span id="BMR">Click the above button to calculate BMR.</span><BR/>
-<span id="TDEE">Click the above button to calculate TDEE.</span><BR/><BR/>
-This calculator uses the <a href="https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas">Mifflin-St Jeor equation</a> to give a reliable estimate of metabolic rate.  For a thorough comparison of this with other formulae, see <a href="http://www.ncbi.nlm.nih.gov/pubmed/15883556">Frankenfield et al.</a>
-</form>
-
+	<div class="container-fluid" style="margin-top: 3em; text-align: center;">
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<form id="tdeeform">
+					<div class="row form-group">
+						<div class="col-sm-12">
+							<div class="col-sm-2 col-sm-offset-4">
+								<label for="units" class="control-label">
+									<input class="form-control" value='metric' type="radio" name="units"> Metric</label>
+							</div>
+							<div class="col-sm-2">
+								<label for="units">
+								<input class="form-control" value='imperial' type="radio" name="units" checked> Imperial</label>
+							</div>
+						</div>
+					</div>
+					<div class="row form-group form-inline">
+						<div class="col-sm-12">
+							<div class="inline">
+								<label for="height">Height</label>
+								<input class="form-control" id="height" style="width: 100px" />(<span id="heightunits">ft</span>)
+								<input class="form-control" id="height2" style="width: 100px" />(in)
+							</div>
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-sm-12">
+							<div class="radio-inline">
+								<label for="weight">Weight (<span id="weightunits">lb</span>)</label>
+								<input class="form-control" id="weight"/>
+							</div>
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-sm-12">
+							<div class="radio-inline">
+								<label for="height">Age</label>
+								<input class="form-control" id="age"/>
+							</div>
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-sm-12">
+							<div class="col-sm-2 col-sm-offset-4">
+								<label for="gender">
+								<input class="form-control" value='M' type="radio" name="gender">Male</label>
+							</div>
+							<div class="col-sm-2">
+								<label for="gender">
+								<input class="form-control" value='F' type="radio" name="gender" checked>Female</label>
+							</div>
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-sm-6 col-sm-offset-3">
+							<button class="form-control" type='button' id="calcbutton">Calculate BMR/TDEE</button>
+						</div>
+					</div>
+					<span id="BMR">Click the above button to calculate BMR.</span><BR/>
+					<span id="TDEE">Click the above button to calculate TDEE.</span><BR/><BR/>
+					This calculator uses the <a href="https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas">Mifflin-St Jeor equation</a> to give a reliable estimate of metabolic rate.  For a thorough comparison of this with other formulae, see <a href="http://www.ncbi.nlm.nih.gov/pubmed/15883556">Frankenfield et al.</a>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 <script src="jquery-1.11.3.min.js"></script>
 <script src="calc.js"></script>
