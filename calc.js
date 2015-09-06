@@ -1,3 +1,10 @@
+function setupTooltips() {
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+}
+setupTooltips();    
+
 $("input:radio[name=units]").click(function() {
 var units = $(this).val();
  if (units == 'metric') {
@@ -36,8 +43,9 @@ if ( gender == 'M' ) {
 }
 bmr = 10*weight + 6.25*height - 5.0*age + s;
 var tdee = 1.2*bmr;
-$("#BMR").text("Your BMR is " + toFixed(bmr,0) + " kcal/day");
-$("#TDEE").text("Your sedentary TDEE is " + toFixed(tdee,0) + " kcal/day");
+$("#BMR").html("Your BMR<sup id=\"ttBMR\" class=\"tt\" data-toggle=\"tooltip\" data-html=\"true\" data-placement=\"right\" title=\"Basal Metabolic Rate (BMR) is the <i>minimum</i> amount of energy your body burns daily (zero activity, e.g. a coma)\">?</sup> is " + toFixed(bmr,0) + " kcal/day");
+$("#TDEE").html("Your sedentary TDEE<sup id=\"ttTDEE\" class=\"tt\" data-toggle=\"tooltip\" data-html=\"true\" data-placement=\"right\" title=\"Total Daily Energy Expenditure (TDEE) is the <i>typical</i> amount of energy your body burns daily (sedentary)\">?</sup> is " + toFixed(tdee,0) + " kcal/day");
+setupTooltips();
 })
 
 function toFixed(value, precision) {
