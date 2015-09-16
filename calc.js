@@ -25,15 +25,15 @@ var inches = parseFloat( $("#height2").val() );
 var weight = parseFloat( $("#weight").val() );
 var age = parseInt( $("#age").val() );
 var units = $("input:radio[name=units]:checked").val();
-if ( isNaN(height) || isNaN(inches) || isNaN(weight) || isNaN(age) ) {
-    $("#BMR").text("Please fill out all fields.");
-    $("#TDEE").text("Please fill out all fields.");
-    return false;
-}
 var bmr;
 if ( units == 'imperial' ) {
     height = (12*height+inches)*2.54;
     weight *= 1/2.2;
+}
+if ( isNaN(height) || isNaN(weight) || isNaN(age) ) {
+    $("#BMR").text("Please fill out all fields.");
+    $("#TDEE").text("Please fill out all fields.");
+    return false;
 }
 var s = 0;
 if ( gender == 'M' ) {
