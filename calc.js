@@ -1,5 +1,5 @@
-var ttBMR = "Total Daily Energy Expenditure (TDEE) is the <i>typical</i> amount of energy your body burns daily (sedentary)";
-var ttTDEE = "Basal Metabolic Rate (BMR) is the <i>minimum</i> amount of energy your body burns daily (zero activity, e.g. a coma)";
+var ttTDEE = "Total Daily Energy Expenditure (TDEE) is the <i>typical</i> amount of energy your body burns daily (sedentary)";
+var ttBMR = "Basal Metabolic Rate (BMR) is the <i>minimum</i> amount of energy your body burns daily (zero activity, e.g. a coma)";
 
 var spanBMR = '<span id="ttBMR" class="tt" data-toggle="tooltip" data-html="true" data-placement="right" title="'+ttBMR+'">BMR</span>'
 var spanTDEE = '<span id="ttTDEE" class="tt" data-toggle="tooltip" data-html="true" data-placement="right" title="'+ttTDEE+'">TDEE</span>'
