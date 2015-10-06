@@ -1,3 +1,12 @@
+var ttBMR = "Total Daily Energy Expenditure (TDEE) is the <i>typical</i> amount of energy your body burns daily (sedentary)";
+var ttTDEE = "Basal Metabolic Rate (BMR) is the <i>minimum</i> amount of energy your body burns daily (zero activity, e.g. a coma)";
+
+var spanBMR = '<span id="ttBMR" class="tt" data-toggle="tooltip" data-html="true" data-placement="right" title="'+ttBMR+'">BMR</span>'
+var spanTDEE = '<span id="ttTDEE" class="tt" data-toggle="tooltip" data-html="true" data-placement="right" title="'+ttTDEE+'">TDEE</span>'
+
+var calcTDEE = 'Click the above button to calculate '+spanTDEE+'.';
+var calcBMR = 'Click the above button to calculate '+spanBMR+'.';
+
 function setupTooltips() {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
@@ -31,8 +40,10 @@ if ( units == 'imperial' ) {
     weight *= 1/2.2;
 }
 if ( isNaN(height) || isNaN(weight) || isNaN(age) ) {
-    $("#BMR").text("Please fill out all fields.");
-    $("#TDEE").text("Please fill out all fields.");
+    $("#BMR").html("Please fill out all fields.");
+    $("#TDEE").html("");
+    var errorColor = "rgba(249, 43, 43, 0.53)";
+    $("#results").css({backgroundColor:errorColor}).delay(300).animate({backgroundColor:"transparent"},400);
     return false;
 }
 var s = 0;
@@ -43,8 +54,9 @@ if ( gender == 'M' ) {
 }
 bmr = 10*weight + 6.25*height - 5.0*age + s;
 var tdee = 1.2*bmr;
-$("#BMR").html("Your BMR<sup id=\"ttBMR\" class=\"tt\" data-toggle=\"tooltip\" data-html=\"true\" data-placement=\"right\" title=\"Basal Metabolic Rate (BMR) is the <i>minimum</i> amount of energy your body burns daily (zero activity, e.g. a coma)\">?</sup> is " + toFixed(bmr,0) + " kcal/day");
-$("#TDEE").html("Your sedentary TDEE<sup id=\"ttTDEE\" class=\"tt\" data-toggle=\"tooltip\" data-html=\"true\" data-placement=\"right\" title=\"Total Daily Energy Expenditure (TDEE) is the <i>typical</i> amount of energy your body burns daily (sedentary)\">?</sup> is " + toFixed(tdee,0) + " kcal/day");
+$("#BMR").html("Your "+spanBMR+" is " + toFixed(bmr,0) + " kcal/day.");
+$("#TDEE").html("Your sedentary "+spanTDEE+" is " + toFixed(tdee,0) + " kcal/day.");
+$("#results").css({backgroundColor:"rgba(0,255,0,0.25)"}).delay(300).animate({backgroundColor:"transparent"},400);
 setupTooltips();
 })
 
@@ -52,3 +64,10 @@ function toFixed(value, precision) {
 var power = Math.pow(10, precision || 0);
 return String(Math.round(value * power) / power);
 }
+
+$(function() {
+$("#TDEE").html(calcTDEE);
+$("#BMR").html(calcBMR);
+setupTooltips();
+})
+

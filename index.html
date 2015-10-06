@@ -4,11 +4,27 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <style type="text/css">
     .tt {
-      color: blue;
+      color: #337ab7;
+      text-decoration: underline;
     }
     .tooltip.right {
         width: 150%;
     }
+    #results {
+        display: inline-block;
+    }
+ .flash{
+
+  -moz-animation: flash 1s ease-out;
+  -moz-animation-iteration-count: 1;
+
+  -webkit-animation: flash 1s ease-out;
+  -webkit-animation-iteration-count: 1;
+
+  -ms-animation: flash 1s ease-out;
+  -ms-animation-iteration-count: 1;
+
+}
 </style>
 </head>
 <body>
@@ -70,21 +86,32 @@
 							<button class="form-control" type='button' id="calcbutton">Calculate BMR/TDEE</button>
 						</div>
 					</div>
-                    <span>
-                        <span id="BMR">Click the above button to calculate BMR<sup id="ttBMR" class="tt" data-toggle="tooltip" data-html="true" data-placement="right" 
-                          title="Basal Metabolic Rate (BMR) is the <i>minimum</i> amount of energy your body burns daily (zero activity, e.g. a coma)">?</sup>.</span>
-                    </span><BR/>
-                    <span>
-                        <span id="TDEE">Click the above button to calculate TDEE<sup id="ttTDEE" class="tt" data-toggle="tooltip" data-html="true" data-placement="right"
-                          title="Total Daily Energy Expenditure (TDEE) is the <i>typical</i> amount of energy your body burns daily (sedentary)">?</sup>.</span>
-                    </span><BR/><BR/>
-					This calculator uses the <a href="https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas">Mifflin-St Jeor equation</a> to give a reliable estimate of metabolic rate.  For a thorough comparison of this with other formulae, see <a href="http://www.ncbi.nlm.nih.gov/pubmed/15883556">Frankenfield et al.</a>
+                    <div id="results" class="centered">
+                        <span>
+                            <span id="BMR">Click the above button to calculate 
+                                <span id="ttBMR" class="tt" data-toggle="tooltip" data-html="true" data-placement="right">
+                                    BMR
+                                </span>.
+                            </span>
+                        </span>
+                        <BR/>
+                        <span>
+                            <span id="TDEE">Click the above button to calculate 
+                                <span id="ttTDEE" class="tt" data-toggle="tooltip" data-html="true" data-placement="right">
+                                    TDEE
+                                </span>.
+                            </span>
+                        </span>
+                    </div>
+                    <BR/><BR/>
+                    This calculator uses the <a href="https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas">Mifflin-St Jeor equation</a> to give a reliable estimate of metabolic rate.  For a thorough comparison of this with other formulae, see <a href="http://www.ncbi.nlm.nih.gov/pubmed/15883556">Frankenfield et al.</a>
 				</form>
 			</div>
 		</div>
 	</div>
 </body>
 <script src="jquery-1.11.3.min.js"></script>
+<script src="jquery.color-2.1.2.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>               
 <script src="calc.js"></script>
 </html>
