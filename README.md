@@ -1,4 +1,4 @@
-Misc. web tools for the /r/loseit IRC channel ##loseit on freenode.net
+Misc. web tools for the /r/loseit IRC channel ##loseit on irc.snoonet.org
 
 Right now, this project is just a calculator for Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE).
 
