@@ -28,42 +28,42 @@ var units = $(this).val();
 });
 
 $("#calcbutton").click( function() { 
-var gender = $("input:radio[name=gender]:checked").val();
-var height = parseFloat( $("#height").val() );
-var inches = parseFloat( $("#height2").val() );
-var weight = parseFloat( $("#weight").val() );
-var age = parseInt( $("#age").val() );
-var units = $("input:radio[name=units]:checked").val();
-var bmr;
-if ( units == 'imperial' ) {
+  var gender = $("input:radio[name=gender]:checked").val();
+  var height = parseFloat( $("#height").val() );
+  var inches = parseFloat( $("#height2").val() );
+  var weight = parseFloat( $("#weight").val() );
+  var age = parseInt( $("#age").val() );
+  var units = $("input:radio[name=units]:checked").val();
+  var bmr;
+  if ( units == 'imperial' ) {
     height = (12*height+inches)*2.54;
     weight *= 1/2.2;
-}
-if ( isNaN(height) || isNaN(weight) || isNaN(age) ) {
+  }
+  if ( isNaN(height) || isNaN(weight) || isNaN(age) || $.isEmptyObject(gender) ) {
     $("#BMR").html("Please fill out all fields.");
     $("#TDEE").html("");
     var errorColor = "rgba(249, 43, 43, 0.53)";
     $("#results").css({backgroundColor:errorColor}).delay(300).animate({backgroundColor:"transparent"},400);
     return false;
-}
-var s = 0;
-if ( gender == 'M' ) {
+  }
+  var s = 0;
+  if ( gender == 'M' ) {
     s = 5;
-} else if ( gender == 'F' ) {
+  } else if ( gender == 'F' ) {
     s = -161;
-}
-bmr = 10*weight + 6.25*height - 5.0*age + s;
-var tdee = 1.2*bmr;
-$("#BMR").html("Your "+spanBMR+" is " + toFixed(bmr,0) + " kcal/day.");
-$("#TDEE").html("Your sedentary "+spanTDEE+" is " + toFixed(tdee,0) + " kcal/day.");
-$("#results").css({backgroundColor:"rgba(0,255,0,0.25)"}).delay(300).animate({backgroundColor:"transparent"},400);
-setupTooltips();
+  }
+  bmr = 10*weight + 6.25*height - 5.0*age + s;
+  var tdee = 1.2*bmr;
+  $("#BMR").html("Your "+spanBMR+" is " + toFixed(bmr,0) + " kcal/day.");
+  $("#TDEE").html("Your sedentary "+spanTDEE+" is " + toFixed(tdee,0) + " kcal/day.");
+  $("#results").css({backgroundColor:"rgba(0,255,0,0.25)"}).delay(300).animate({backgroundColor:"transparent"},400);
+  setupTooltips();
 })
 
-function toFixed(value, precision) {
-var power = Math.pow(10, precision || 0);
-return String(Math.round(value * power) / power);
-}
+  function toFixed(value, precision) {
+    var power = Math.pow(10, precision || 0);
+    return String(Math.round(value * power) / power);
+  }
 
 $(function() {
 $("#TDEE").html(calcTDEE);
